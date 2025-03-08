@@ -1,0 +1,792 @@
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(16, 16, 20);
+  color: white;
+}
+
+.background {
+  box-shadow:
+    inset 4px 0 40px rgba(0, 0, 0, 0.1),
+    /* Üst sol köşe */
+    inset 0 4px 160px rgba(0, 0, 0, 0.1),
+    /* Üst sağ köşe */
+    inset 0 -4px 160px rgba(0, 0, 0, 0.1),
+    /* Alt sol köşe */
+    inset -40px -40px 80px rgba(0, 0, 0, 0.1);
+  /* Alt sağ köşe */
+}
+
+p {
+  margin: 0 0 0 10px;
+  font-size: 12px;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Inter Tight', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: 'Inter Tight', 'Segoe UI', sans-serif;
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+h3 {
+  font-family: 'Inter Tight', 'Segoe UI', sans-serif;
+  margin: 20px 0 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.containerNav {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 0 auto;
+  background-color: transparent;
+}
+
+.content {
+  min-height: calc(100vh - 476px);
+  border-radius: 15px;
+  background-image: linear-gradient(0deg, rgba(32, 32, 36, 0.3) 0%, rgba(32, 32, 36, 0.3) 100%);
+  background-color: rgba(32, 32, 36, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 1060px;
+
+  transition: all 0.3s ease;
+
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+}
+
+.arama[type=search] {
+  margin: 5px 0 5px 15px;
+  transition: all ease 0.1s;
+  background-color: #202024;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  height: 40px;
+  padding-left: 20px;
+  /* İkon için sağlanan boşluk */
+}
+
+.arama[type=search]:hover {
+  background-color: #404044;
+}
+
+.arama[type=search]::placeholder {
+  color: rgb(175, 175, 175);
+}
+
+.navButton {
+  padding: 0;
+  color: white;
+  display: flex;
+}
+
+.navLeft {
+  float: left;
+}
+
+.navRight {
+  float: right
+}
+
+.populerContent {
+  display: flex;
+  flex-wrap: initial;
+  /* Yeni satıra geçişi sağlamak için */
+  justify-content: space-between;
+  /* Boşlukları kaldırır */
+}
+
+.populerList {
+  max-width: 200px;
+  margin: auto;
+}
+
+.populerList li {
+  margin: 0;
+  padding: 0;
+}
+
+.populerImage {
+  width: 40px;
+  border-radius: 4px;
+  height: 50px;
+  object-fit: cover;
+  opacity: 0.5;
+  animation: change-image 0.2s linear forwards;
+  z-index: 1;
+}
+
+.progress-bar-visible {
+  display: block !important;
+}
+
+.populerListBox {
+  margin: 10px 0 0 10px !important;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 68px;
+  background-color: #404044;
+  animation: progress 5s linear forwards;
+  transition: all ease 0.5s;
+}
+
+.populerListItems {
+  height: 68px;
+  display: flex;
+  overflow: hidden;
+  /* Flexbox eklenmeli */
+  padding: 0 10px;
+  /* Yatayda ortalama */
+  align-items: center;
+  /* Dikeyde ortalama */
+  transition: all ease 0.5s;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.populerListItems:hover {
+  background-color: #28282c;
+}
+
+.populerSelected {
+  background-color: #28282c;
+}
+
+.populerListText {
+  z-index: 1;
+  margin-left: 10px;
+  font-size: 14px;
+  user-select: none;
+}
+
+.populerSeries {
+  display: flex;
+  height: 460px;
+  width: 800px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+
+  flex-grow: 1;
+  max-width: 868px;
+  min-width: 0;
+
+  background: linear-gradient(0deg, rgb(30 30 33) 0%, rgb(37 37 40) 100%);
+}
+
+.populerHeader {
+  position: absolute;
+  top: 35%;
+  left: 32px;
+  z-index: 1;
+  transition: all ease 1s;
+}
+
+.populerDesBox {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  height: 100px;
+  width: 350px;
+  /* Daha geniş bir alan tanımlandı */
+  overflow: hidden;
+  z-index: 1;
+  box-sizing: border-box;
+  /* Padding'i kutu boyutuna dahil eder */
+}
+
+.populerDescp {
+  margin: 0;
+  text-align: left;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: block;
+  /* Esnek kutu yerine blok düzen kullanıldı */
+  height: 100%;
+  /* Kutunun yüksekliğini tamamen doldur */
+  line-height: 1.5;
+  /* Satır aralığı için daha iyi okunabilirlik */
+  transition: all ease 1s;
+}
+
+.populerButton {
+  background-color: white;
+  color: black;
+  position: absolute;
+  top: 85%;
+  left: 32px;
+  border: none;
+  border-radius: 10px;
+  height: 48px;
+  width: 180px;
+  z-index: 1;
+}
+
+.populerButton:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.populerMark {
+  color: white;
+  background-color: transparent;
+  position: absolute;
+  top: 85%;
+  left: calc(32px + 180px + 32px);
+  border-radius: 10px;
+  height: 48px;
+  width: 180px;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  /* İkon ile metin arasına boşluk ekler */
+  border: 0;
+  font-size: 16px;
+  /* Yazı boyutunu belirler */
+}
+
+.populerMark:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: white;
+  background-color: #202024;
+}
+
+.footer-text {
+  color: rgb(170, 170, 170);
+  margin: 15px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.footer-min-text {
+  color: rgb(102, 102, 102);
+  margin: 15px 0 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+main ul {
+  list-style: none;
+  padding: 0;
+}
+
+main ul li {
+  margin: 10px 0;
+}
+
+main {
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+}
+
+main ul li a:hover {
+  text-decoration: underline;
+}
+
+img {
+  user-select: none;
+}
+
+.topContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rightLine {
+  width: 1px;
+  min-width: 1px;
+  height: 452px;
+  max-width: 1px;
+  max-height: 452px;
+  background-color: #404044;
+  margin: auto;
+}
+
+.rightLineAdded {
+  width: 1px;
+  min-width: 1px;
+  height: 540px;
+  max-width: 1px;
+  max-height: 540px;
+  background-color: #404044;
+  margin: 60px 16px auto 16px;
+}
+
+.line {
+  width: 95%;
+  max-width: 1000px;
+  height: 1px;
+  max-height: 1px;
+  min-height: 1px;
+  background-color: #404044;
+  margin: 50px auto 50px auto;
+}
+
+.lineImage {
+  width: 64px;
+  border-radius: 8px;
+  height: 80px;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+.populer-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  max-height: 260px;
+}
+
+.total-container {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+  gap: 20px;
+  max-width: 1060px;
+}
+
+.film-card {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.film-card img {
+  width: 160px;
+  border-radius: 8px;
+  height: 190px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.film-card:hover {
+  transform: translateY(-5px);
+}
+
+.categoryHeaders {
+  user-select: none;
+  transition: all 0.1s ease;
+}
+
+.categoryHeaders:hover {
+  transform: translateX(10px);
+}
+
+
+
+
+.added {
+  overflow-y: scroll;
+  width: 330px;
+  height: 540px;
+}
+
+
+
+
+
+
+
+.top-ten-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  max-height: 240px;
+}
+
+.mainboxscroll::-webkit-scrollbar {
+  background-color: transparent;
+  border-radius: 8px;
+  width: 6px;
+  height: 4px;
+}
+
+.mainboxscroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* Scrollbar rengi */
+  border-radius: 8px;
+}
+
+.altboxs:hover .mainboxscroll::-webkit-scrollbar-thumb {
+  background-color: #4d4d4d;
+}
+
+.top-card {
+  padding: 110px 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s ease;
+}
+
+.top-card img {
+  top: 0;
+  width: 50%;
+  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.altboxs {
+  position: relative;
+}
+
+.tenButton {
+  display: flex;
+  align-items: center;
+  /* Dikey hizalama */
+  justify-content: center;
+  /* Yatay hizalama */
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+
+  width: 30px;
+  height: 30px;
+  background: #343437;
+  cursor: pointer;
+
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.tenButton:hover {
+  background-color: #636366;
+}
+
+
+
+
+
+
+
+
+
+.linedContents {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: inherit;
+}
+
+.linedItems {
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px;
+  display: flex;
+  /* Flexbox eklenmeli */
+  justify-content: flex-start;
+  /* Yatayda ortalama */
+  align-items: center;
+  /* Dikeyde ortalama */
+  transition: all ease 0.1s;
+}
+
+.linedItems:hover {
+  background-color: #202024;
+}
+
+.lineText {
+  margin-left: 20px;
+}
+
+
+
+.lastAdded,
+.populerAdded,
+.pendingAdded {
+  margin: 0;
+}
+
+
+
+
+
+.scroll-container {
+  width: 260px;
+  height: calc(71px*10);
+  background-color: transparent;
+  border-radius: 8px;
+  border: 0;
+  overflow-y: scroll;
+  /* Dikey scroll ekler */
+  overflow-x: hidden;
+  margin: auto 0 auto auto;
+}
+
+.scroll-container::-webkit-scrollbar,
+.lastAdded::-webkit-scrollbar,
+.populerAdded::-webkit-scrollbar,
+.pendingAdded::-webkit-scrollbar {
+  background-color: rgba(77, 77, 77, 0.25);
+  border-radius: 8px;
+  width: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb,
+.lastAdded::-webkit-scrollbar-thumb,
+.populerAdded::-webkit-scrollbar-thumb,
+.pendingAdded::-webkit-scrollbar-thumb {
+  background-color: rgba(77, 77, 77, 0.5);
+  /* Scrollbar rengi */
+  border-radius: 8px;
+  /* Kenarları yuvarlat */
+}
+
+
+.lists:hover .lastAdded::-webkit-scrollbar-thumb,
+.lists:hover .populerAdded::-webkit-scrollbar-thumb,
+.lists:hover .pendingAdded::-webkit-scrollbar-thumb {
+  background-color: #4d4d4d;
+}
+
+
+.side-tools {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 30px;
+  position: absolute;
+  top: 0;
+  left: 105%; 
+}
+
+.lastScroll {
+  background-color: #19191d;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #404044;
+}
+
+.item img {
+  opacity: 1 !important;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 1780px) {
+  .detailSearch {
+    display: none;
+  }
+  .lastScroll {
+    display: none;
+  }
+
+  .lastLine {
+    display: block !important;
+  }
+}
+
+@media (max-width: 995px) {
+
+  .total-container {
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+  }
+
+  .linedItems {
+    width: 180px;
+  }
+}
+
+@media (max-width: 850px) {
+  .total-container {
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+}
+
+::-moz-selection {
+  background: #cf455c;
+}
+
+::selection {
+  background: #cf455c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  flex-shrink: 0 !important;
+  min-width: 160px !important;
+  height: 230px;
+  width: 160px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(0deg, rgb(30 30 33) 0%, rgb(37 37 40) 100%);
+}
+
+.topImage {
+  width: 160px;
+  height: 180px;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+  mask-image: linear-gradient(to top, transparent, white 20%, black);
+}
+
+.botImage {
+  width: 160px;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(50px) saturate(1.2);
+}
+
+.carddiv {
+  margin: 0;
+  padding: 8px;
+  width: calc(100% - 16px);
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+}
+
+.desbot {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardtext {
+  padding: 0;
+  margin: 0;
+  word-break: break-all;
+}
+
+.episodebox {
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.text {
+  color: white;
+  font-size: 14px;
+
+}
+
+.puan {
+  display: flex;
+  align-items: center; /* Dikey hizalama */
+  gap: 4px;
+}
+
+
+@keyframes progress {
+  from {
+      width: 0;
+  }
+  to {
+      width: 179.5px;
+  }
+}
+
+@keyframes change-image {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
+  <meta content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Anime Detayı</title>
+
+  <script>
+    var timestamp = new Date().getTime();
+    var main = document.createElement('link');
+    main.rel = 'stylesheet';
+    main.href = 'css/styles.css?v=' + timestamp;
+
+    var category = document.createElement('link');
+    category.rel = 'stylesheet';
+    category.href = 'css/category.css?v=' + timestamp;
+
+    document.head.appendChild(main);
+    document.head.appendChild(category);
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="./images/logo.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="background">
+    <nav class="container" role="navigation">
+      <article class="containerNav" style="display: flex;">
+        <div class="navButton navLeft">
+          <a href="index.html"><img height="40px" width="164px" src="./images/logo.png" alt="anistia"></a>
+          <input type="search" class="arama" placeholder="🔎 Anime ara..." name="arama" required="">
+          <a href="index.html" style="margin: auto 15px;">
+            Tüm Animeler
+          </a>
+        </div>
+        <div class="navButton navRight">
+          <a href="index.html">
+            Geçmiş
+          </a>
+        </div>
+      </article>
+    </nav>
+
+    <main class="content" id="wrap">
+      <div class="puanDetails">
+        <div class="puans">
+          <p class="path" id="top-path">
+          <p>
+          <h2 class="episodeName" id="top-name">Yükleniyor...</h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+          </svg>
+          <a id="comment-count" href="./episode.html" style="margin-left: 10px;">Yorumlar</a>
+        </div>
+
+        <div class="player-sources">
+          <div class="sources">
+            <button class="normal-color player-buttons" disabled>Kaynak 1</button>
+          </div>
+          <div class="episode-control">
+            <button class="normal-color player-buttons">Önceki Bölüm</button>
+            <button class="normal-color player-buttons">Sonraki Bölüm</button>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="player-div">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="player-top-contents">
+
+              <div id="image-div" class="image-div">
+                <div class="player-items">
+                  <iframe width="680" height="420" src="https://www.youtube.com/embed/-G9BqkgZXRA?si=agIfcC6VZzdZVb_W"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="player-items">
+                  <iframe width="680" height="420" src="https://video.sibnet.ru/shell.php?videoid=3642169"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+              </div>
+
+
+              <div class="episode-div">
+                <ul class="episode-button-container">
+                  <li class="episode-buttons selected-button">Detaylar</li>
+                  <li id="start" class="episode-buttons">Bölümler</li>
+                </ul>
+                <div id="slider-episode" class="slider-episode" style="overflow: hidden;">
+                  <div class="border">
+                    <p style="text-indent: 3px; font-size: 14px; margin-top: 15px;">Türler</p>
+                    <div class="tur-container">
+                      <p class="tur-text">Aksiyon</p>
+                      <p class="tur-text">Romantizm</p>
+                      <p class="tur-text">Seinen</p>
+                      <p class="tur-text">Shounen</p>
+                      <p class="tur-text">Shounen</p>
+                      <p class="tur-text">Shounen</p>
+                      <p class="tur-text">Shounen</p>
+                    </div>
+                    <button class="watch button" onclick="document.getElementById('start').click()">Şimdi İzle</button>
+                    <button class="normal-color button">Listeme Ekle</button>
+                    <div class="details" style="margin-top: 10px;">
+                      <div class="detail-row">
+                        <p class="detail-text">Yapımcı Stüdyo</p>
+                        <p class="detail-text" style="color: white;">Square Enix</p>
+                      </div>
+                      <div class="detail-row">
+                        <p class="detail-text">Yapım Yılı</p>
+                        <p class="detail-text" style="color: white;">2020</p>
+                      </div>
+                      <div style="display: flex; justify-content: space-between;">
+                        <button class="normal-color bot-buttons"
+                          onclick="navigator.clipboard.writeText(window.location.href)">Paylaş</button>
+                        <button class="normal-color bot-buttons">Bildir</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border2" style="padding-left: 13px;">
+                    <ul class="bolumler">
+                      <li class="bolum-buttons">1. Bölüm</li>
+                      <li class="bolum-buttons">2. Bölüm</li>
+                      <li class="bolum-buttons">3. Bölüm</li>
+                      <li class="bolum-buttons">4. Bölüm</li>
+                      <li class="bolum-buttons">5. Bölüm</li>
+                      <li class="bolum-buttons">6. Bölüm</li>
+                      <li class="bolum-buttons">7. Bölüm</li>
+                      <li class="bolum-buttons">8. Bölüm</li>
+                      <li class="bolum-buttons">9. Bölüm</li>
+                      <li class="bolum-buttons">10. Bölüm</li>
+                      <li class="bolum-buttons">11. Bölüm</li>
+                      <li class="bolum-buttons">12. Bölüm</li>
+                      <li class="bolum-buttons">13. Bölüm</li>
+                      <li class="bolum-buttons">14. Bölüm</li>
+                      <li class="bolum-buttons">15. Bölüm</li>
+                      <li class="bolum-buttons">16. Bölüm</li>
+                      <li class="bolum-buttons">17. Bölüm</li>
+                      <li class="bolum-buttons">18. Bölüm</li>
+                      <li class="bolum-buttons">19. Bölüm</li>
+                      <li class="bolum-buttons">20. Bölüm</li>
+                      <li class="bolum-buttons">21. Bölüm</li>
+                      <li class="bolum-buttons">22. Bölüm</li>
+                      <li class="bolum-buttons">23. Bölüm</li>
+                      <li class="bolum-buttons">24. Bölüm</li>
+                    </ul>
+                  </div>
+
+
+
+
+
+
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="bot-episode-div">
+              <div class="bot-episode slider-item bot-selected">
+                <p class="episode-text">Fragman</p>
+              </div>
+              <div class="bot-episode slider-item">
+                <p class="episode-text">Bölüm 1</p>
+              </div>
+            </div>
+
+
+            <p class="bot-header" style="text-indent: 3px; font-size: 14px;">Açıklama</p>
+            <div class="description-div">
+              <p class="desc" id="desc">Yükleniyor...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="bot-content">
+          <div id="disqus_thread" style="margin-top: 30px;"></div>
+          <script>
+            /*
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+            var disqus_config = function () {
+              this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://anistia.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })()
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+              Disqus.</a></noscript>
+          <script id="dsq-count-scr" src="//anistia.disqus.com/count.js" async></script>
+        </div>
+
+      </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+    <footer style="display:block ;margin-top: 50px; position: relative; align-items: center;">
+      <a href="index.html"><img
+          style="position: absolute; bottom: 0; right: 30%; clip-path: inset(0px, 200px, 200px, 0px);" height="330px"
+          width="220px" src="./images/kasane_teto.png" alt="kasane"></a>
+
+      <div class="footer-space" style="width: 1060px; margin: auto; text-align: start;">
+        <a href="index.html"><img height="40px" width="164px" src="./images/logo.png" alt="anistia"></a>
+        <br>
+        <p class="footer-text">Copyright &copy; 2025, Anistia Tüm hakları saklıdır.</p>
+        <a style="margin-right: 10px;" class="gh" href="https://github.com/capanp" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+            class="bi bi-github animated animatedFadeInUp fadeInUp" viewBox="0 0 16 16">
+            <path fill="#666666"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg>
+        </a>
+        <a style="margin-right: 10px;" class="fb" href="https://www.facebook.com/capmayan/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+            class="bi bi-facebook animated animatedFadeInUp fadeInUp" viewBox="0 0 16 16">
+            <path fill="#666666"
+              d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+          </svg>
+        </a>
+        <a style="margin-right: 10px;" class="fb" href="https://steamcommunity.com/id/capansj/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+            class="bi bi-steam animated animatedFadeInUp fadeInUp" viewBox="0 0 16 16">
+            <path fill="#666666"
+              d="M.329 10.333A8.01 8.01 0 0 0 7.99 16C12.414 16 16 12.418 16 8s-3.586-8-8.009-8A8.006 8.006 0 0 0 0 7.468l.003.006 4.304 1.769A2.2 2.2 0 0 1 5.62 8.88l1.96-2.844-.001-.04a3.046 3.046 0 0 1 3.042-3.043 3.046 3.046 0 0 1 3.042 3.043 3.047 3.047 0 0 1-3.111 3.044l-2.804 2a2.223 2.223 0 0 1-3.075 2.11 2.22 2.22 0 0 1-1.312-1.568L.33 10.333Z" />
+            <path fill="#666666"
+              d="M4.868 12.683a1.715 1.715 0 0 0 1.318-3.165 1.7 1.7 0 0 0-1.263-.02l1.023.424a1.261 1.261 0 1 1-.97 2.33l-.99-.41a1.7 1.7 0 0 0 .882.84Zm3.726-6.687a2.03 2.03 0 0 0 2.027 2.029 2.03 2.03 0 0 0 2.027-2.029 2.03 2.03 0 0 0-2.027-2.027 2.03 2.03 0 0 0-2.027 2.027m2.03-1.527a1.524 1.524 0 1 1-.002 3.048 1.524 1.524 0 0 1 .002-3.048" />
+          </svg>
+        </a>
+        <a style="margin-right: 10px;" class="fb" href="https://discord.gg/ukzQuMB64g" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-discord"
+            viewBox="0 0 16 16">
+            <path fill="#666666"
+              d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" />
+          </svg>
+        </a>
+        <br>
+        <p class="footer-min-text" style="max-width: 480px;">Yasal Uyarı: Bu site sunucusunda hiçbir dosya saklamaz. Tüm
+          içerikler bağlı olmayan üçüncü taraflarca sağlanır.</p>
+      </div>
+    </footer>
+  </div>
+
+
+
+  <script>
+    var uie = document.createElement('script');
+    uie.src = './js/episode.js?v=' + timestamp;
+    document.head.appendChild(uie);
+  </script>
+
+  <script>
+    const playerDiv = document.getElementById('image-div');
+    const items = document.querySelectorAll('.slider-item');
+
+    items.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        items.forEach(function (elmnt) {
+          elmnt.classList.remove('bot-selected');
+        });
+
+        console.log(index + 1)
+        playerDiv.scrollLeft = 680 * (index);
+        items[index].classList.add('bot-selected');
+      });
+    });
+
+    const eplayerDiv = document.getElementById('slider-episode');
+    const eitems = document.querySelectorAll('.episode-buttons');
+
+    eitems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        console.log(index + 1)
+        eplayerDiv.scrollLeft = 335 * (index);
+      });
+    });
+
+    eitems.forEach(function (element) {
+      element.addEventListener('click', function () {
+        // Önceki kırmızı border'ı kaldır
+        eitems.forEach(function (elmnt) {
+          elmnt.classList.remove('selected-button');
+        });
+        // Tıklanan elemente kırmızı border ekle
+        this.classList.add('selected-button');
+      });
+    });
+
+    document.querySelectorAll('.bolum-buttons').forEach(function (element) {
+      element.addEventListener('click', function () {
+        playerDiv.scrollLeft = 680 * 2;
+        console.log(eplayerDiv)
+      });
+    });
+
+  </script>
+</body>
+
+</html>
