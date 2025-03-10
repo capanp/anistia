@@ -1,3 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log("uie");
 
 const episodesList = document.getElementById("episodes");
@@ -7,30 +25,28 @@ console.log(x);
 
 function getDominantColor(imageUrl, callback) {
   const img = new Image();
-  img.crossOrigin = "Anonymous"; // CORS hatalarını önlemek için
+  img.crossOrigin = "Anonymous"; 
   img.src = imageUrl;
 
   img.onload = function () {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Resmi canvas'a çiz
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0, img.width, img.height);
+    // Küçük bir örnekleme yaparak işlemi hızlandır
+    canvas.width = 50; 
+    canvas.height = 50;  
+    ctx.drawImage(img, 0, 0, 50, 50);  
 
-    // Piksel verilerini al
-    const imageData = ctx.getImageData(0, 0, img.width, img.height);
-    const data = imageData.data;
-
+    const imageData = ctx.getImageData(0, 0, 50, 50).data;
+    
     let colorMap = {};
     let maxCount = 0;
     let dominantColor = '';
 
-    for (let i = 0; i < data.length; i += 4) {
-      let r = data[i];
-      let g = data[i + 1];
-      let b = data[i + 2];
+    for (let i = 0; i < imageData.length; i += 40) { // Daha az piksel işle
+      let r = imageData[i];
+      let g = imageData[i + 1];
+      let b = imageData[i + 2];
 
       let rgb = `${r},${g},${b}`;
       colorMap[rgb] = (colorMap[rgb] || 0) + 1;
@@ -41,11 +57,9 @@ function getDominantColor(imageUrl, callback) {
       }
     }
 
-    // Dominant renkleri al ve şeffaflık ekleyerek RGBA formatına çevir
     const [r, g, b] = dominantColor.split(',');
     const rgbaColor = `rgba(${r},${g},${b},0.1)`;
 
-    // Sonucu callback fonksiyonuyla döndür
     callback(rgbaColor);
   };
 
@@ -88,7 +102,7 @@ fetch('./data/animes.json?v=' + new Date().getTime())
 
       // <img> etiketi oluştur
       const img = document.createElement('img');
-      img.src = episode.image;
+      img.src = `./images/anime/${(episode.isim.toLowerCase()).replaceAll(" ", "-")}.webp`;
       img.alt = episode.isim;
       img.className = "populerImage";
 
@@ -105,7 +119,7 @@ fetch('./data/animes.json?v=' + new Date().getTime())
 
     name.innerText = latestEpisodes[0].isim;
     des.innerText = latestEpisodes[0].aciklama;
-    image.src = latestEpisodes[0].image;
+    image.src = `./images/anime/${(latestEpisodes[0].isim.toLowerCase()).replaceAll(" ", "-")}.webp`;
 
     console.log(latestEpisodes[0]);
 
@@ -124,8 +138,8 @@ fetch('./data/animes.json?v=' + new Date().getTime())
       }
 
       card.innerHTML = `
-            <img class="topImage" width="160" height="180" src="${film.image}" alt="${film.isim}">
-            <img class="botImage" width="160" height="230" src="${film.image}" alt="${film.isim}">
+            <img class="topImage" width="160" height="180" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
+            <img class="botImage" width="160" height="230" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
             <div class="carddiv">
                 <p class="cardtext text">${film.isim}</p>
                 <div class="desbot">
@@ -161,8 +175,8 @@ fetch('./data/animes.json?v=' + new Date().getTime())
       }
 
       card.innerHTML = `
-            <img class="topImage" width="160" height="180" src="${film.image}" alt="${film.isim}">
-            <img class="botImage" width="160" height="220" src="${film.image}" alt="${film.isim}">
+            <img class="topImage" width="160" height="180" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
+            <img class="botImage" width="160" height="230" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
             <div class="carddiv">
                 <p class="cardtext text">${film.isim}</p>
                 <div class="desbot">
@@ -188,8 +202,8 @@ fetch('./data/animes.json?v=' + new Date().getTime())
       }
 
       card.innerHTML = `
-            <img class="topImage" width="160" height="180" src="${film.image}" alt="${film.isim}">
-            <img class="botImage" width="160" height="220" src="${film.image}" alt="${film.isim}">
+            <img class="topImage" width="160" height="180" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
+            <img class="botImage" width="160" height="230" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
             <div class="carddiv">
                 <p class="cardtext text">${film.isim}</p>
                 <div class="desbot">
@@ -224,21 +238,21 @@ fetch('./data/animes.json?v=' + new Date().getTime())
 
     episodes.forEach((episode) => {
       const li = document.createElement("li");
-      li.innerHTML = `<img class="lineImage" src="${episode.image}" alt="${episode.isim}"><a class="lineText" href="episode.html?anime=${episode.isim}">${episode.isim}</a>`;
+      li.innerHTML = `<img class="lineImage" src="./images/anime/${(episode.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${episode.isim}"><a class="lineText" href="episode.html?anime=${episode.isim}">${episode.isim}</a>`;
       li.classList.add('linedItems');
       lineLastList.appendChild(li);
     });
 
     populerAdded.forEach((episode) => {
       const li = document.createElement("li");
-      li.innerHTML = `<img class="lineImage" src="${episode.image}" alt="${episode.isim}"><a class="lineText" href="episode.html?anime=${episode.isim}">${episode.isim}</a>`;
+      li.innerHTML = `<img class="lineImage" src="./images/anime/${(episode.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${episode.isim}"><a class="lineText" href="episode.html?anime=${episode.isim}">${episode.isim}</a>`;
       li.classList.add('linedItems');
       linePopulerList.appendChild(li);
     });
 
     pendingAdded.forEach((episode) => {
       const li = document.createElement("li");
-      li.innerHTML = `<img class="lineImage" src="${episode.image}" alt="${episode.isim}"><a class="lineText" href="episode.html?anime=${episode.isim}">${episode.isim}</a>`;
+      li.innerHTML = `<img class="lineImage" src="./images/anime/${(episode.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${episode.isim}"><a class="lineText" href="episode.html?anime=${episode.isim}">${episode.isim}</a>`;
       li.classList.add('linedItems');
       linePendingList.appendChild(li);
     });
@@ -253,13 +267,13 @@ fetch('./data/animes.json?v=' + new Date().getTime())
 
       card.innerHTML = `
             <h2 style="position:absolute; z-index: 0; top: 50%; left: 10%; font-size: 150px; margin: 0; text-shadow: 0px 0px 40px rgba(255, 255, 255, 0.25); user-select: none;">${index + 1}</h2>
-            <img style="position:absolute;" src="${film.image}" alt="${film.isim}">
+            <img style="position:absolute;" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
             <h3 style="position:absolute; top: 0; left: 0;">${film.isim}</h3>
         `;
 
       topTenContainer.appendChild(card);
     });
-    
+
     const populerWrapper = document.getElementById('populerContainer');
     const topTenWrapper = document.getElementById('topTen');
 
@@ -297,8 +311,8 @@ fetch('./data/animes.json?v=' + new Date().getTime())
       }
 
       card.innerHTML = `
-            <img class="topImage" width="160" height="180" src="${film.image}" alt="${film.isim}">
-            <img class="botImage" width="160" height="230" src="${film.image}" alt="${film.isim}">
+            <img class="topImage" width="160" height="180" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
+            <img class="botImage" width="160" height="230" src="./images/anime/${(film.isim.toLowerCase()).replaceAll(" ", "-")}.webp" alt="${film.isim}">
             <div class="carddiv">
                 <p class="cardtext text">${film.isim}</p>
                 <div class="desbot">
@@ -322,7 +336,7 @@ fetch('./data/animes.json?v=' + new Date().getTime())
     episodes.forEach(item => {
       const div = document.createElement('div');
       div.classList.add('item');
-      div.innerHTML = `<img class="populerImage" src="${item.image}"><div style = "display: block;"><p>12. bölüm</p><a class="populerListText" href="${item.video_link}">${item.isim}</a></div>`;
+      div.innerHTML = `<img class="populerImage" src="./images/anime/${(item.isim.toLowerCase()).replaceAll(" ", "-")}.webp"><div style = "display: block;"><p>12. bölüm</p><a class="populerListText" href="${item.video_link}">${item.isim}</a></div>`;
       contentDiv.appendChild(div);
     });
 
@@ -336,19 +350,19 @@ fetch('./data/animes.json?v=' + new Date().getTime())
     divs.forEach((item, index) => {
       item.addEventListener('click', () => {
         console.log("clicked");
-    
+
         // item üzerinden class kontrolü yap
         if (item.classList.contains("populerSelected")) {
           const link_text = document.getElementById(index).textContent;
           window.location.href = `episode.html?anime=${link_text}`;
         }
-    
+
         currentIndex = index; // Butona tıklandığında başlangıç indeksini güncelle
         changeColor(); // changeColor fonksiyonunu hemen çağır
         startInterval(); // Interval'i yeniden başlat (süre sıfırlanır)
       });
     });
-    
+
     function changeColor() {
       console.log(currentIndex);
 
@@ -367,22 +381,22 @@ fetch('./data/animes.json?v=' + new Date().getTime())
           item.classList.remove('progress-bar-visible'); // Class kaldır
         }
       });
-    
+
       // Tüm div'leri transparent yap
       divs.forEach(div => div.classList.remove('populerSelected'));
-    
+
       // Sıradaki div'in rengini değiştir
       divs[currentIndex].classList.add('populerSelected');
-    
+
       // Diğer işlemler (örneğin, metin ve resim güncelleme)
       name.innerText = latestEpisodes[currentIndex].isim;
       des.innerText = latestEpisodes[currentIndex].aciklama;
-      image.src = latestEpisodes[currentIndex].image;
-    
+      image.src = `./images/anime/${(latestEpisodes[currentIndex].isim.toLowerCase()).replaceAll(" ", "-")}.webp`
+
       // Arkaplan rengini ayarla
-      getDominantColor(latestEpisodes[currentIndex].image, function (color, error) {
+      getDominantColor(`./images/anime/${(latestEpisodes[currentIndex].isim.toLowerCase()).replaceAll(" ", "-")}.webp`, function (color, error) {
         const bgContent = document.getElementById('wrap');
-    
+
         if (error) {
           console.error(error);
           bgContent.style.backgroundImage = `linear-gradient(0deg, rgba(32, 32, 36, 0.3) 0%, rgba(32, 32, 36, 0.3) 70%, rgba(32, 32, 36, 0.3) 100%)`;
@@ -390,7 +404,7 @@ fetch('./data/animes.json?v=' + new Date().getTime())
           bgContent.style.backgroundImage = `linear-gradient(0deg, rgba(32, 32, 36, 0.3) 0%, rgba(32, 32, 36, 0.3) 70%, ${color} 100%)`;
         }
       });
-    
+
       // Bir sonraki index'e geç (döngü sağlamak için mod al)
       currentIndex = (currentIndex + 1) % divs.length;
     }
@@ -400,7 +414,7 @@ fetch('./data/animes.json?v=' + new Date().getTime())
       clearInterval(intervalId); // Önce mevcut interval'i temizle
       intervalId = setInterval(changeColor, 5000); // Yeni interval başlat
     }
-    
+
     // Sayfa yüklendiğinde interval'i başlat
     startInterval();
 

@@ -5,7 +5,6 @@ const animeIsim = urlParams.get('anime');
 const animePath = document.getElementById("top-path");
 const animeName = document.getElementById("top-name");
 const animeDescription = document.getElementById("desc");
-const commentCount = document.getElementById("comment-count");
 
 // JSON dosyasını al
 fetch("data/animes.json")
@@ -17,23 +16,18 @@ fetch("data/animes.json")
   })
   .then((episodes) => {
     const episode = episodes.find(e => e.isim === animeIsim);
-    commentCount.href = `./episode.html?anime=${animeIsim.replace(/ /g, "%20")}#disqus_thread`
     console.log(animeIsim)
+    console.log(episodes)
 
     if (episode) {
       animePath.innerHTML = `
       <a href="list.html" class="path">Tüm Animeler</a> / ${episode.isim}
       `;
-      animeName.innerHTML = `${(episode.isim).toUpperCase()}`;
+      animeName.innerHTML = `${episode.isim}`;
       animeDescription.innerHTML = `${(episode.aciklama)}`;
       console.log(episode)
-      // animeDetailsContainer.innerHTML = `
-      //   <h2 class="episodeName">${(episode.isim).toUpperCase()}</h2>
-      //   <p>${episode.aciklama}</p>
-      //   <a href="${episode.video_link}" target="_blank">Videoyu İzle</a>
-      // `;
     } else {
-      // animeDetailsContainer.innerHTML = "<p>Anime bulunamadı</p>";
+      animeName.innerHTML = "Anime bulunamadı";
     }
   })
   .catch((error) => console.error("Hata:", error));
