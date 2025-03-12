@@ -1,11 +1,3 @@
-
-const urlParams = new URLSearchParams(window.location.search);
-const animeIsim = urlParams.get('anime');
-//const animeDetailsContainer = document.getElementById("anime-details");
-const animePath = document.getElementById("top-path");
-const animeName = document.getElementById("top-name");
-const animeDescription = document.getElementById("desc");
-
 // JSON dosyasını al
 fetch("https://anistia-rest-api.capan.workers.dev/v1/animes")
   .then((response) => {
@@ -14,20 +6,25 @@ fetch("https://anistia-rest-api.capan.workers.dev/v1/animes")
     }
     return response.json();
   })
-  .then((episodes) => {
-    const episode = episodes.find(e => e.isim === animeIsim);
-    console.log(animeIsim)
-    console.log(episodes)
+  .then((data) => {
+    console.log(data);
 
-    if (episode) {
-      animePath.innerHTML = `
-      <a href="list.html" class="path">Tüm Animeler</a> / ${episode.isim}
-      `;
-      animeName.innerHTML = `${episode.isim}`;
-      animeDescription.innerHTML = `${(episode.aciklama)}`;
-      console.log(episode)
+    // Global değişken olarak window.animeEpisodes'a atama yap
+    window.animeEpisodes = data.naruto;
+
+    if (animeEpisodes) {
+      let i = 1;
+      console.log(i)
+      console.log(i <= animeEpisodes.length)
+      console.log(animeEpisodes.length)
+      console.log("uie")
+      for (let i = 1; i <= animeEpisodes.length; i++) {
+        // Yeni bir div oluştur ve container içine ekle
+        $('.bolumler').append(`<li class="bolum-buttons">${i}. Bölüm</li>`);
+        console.log(i+"bolum")
+      }
     } else {
-      animeName.innerHTML = "Anime bulunamadı";
+      console.log("bölüm yok.")
     }
   })
   .catch((error) => console.error("Hata:", error));
