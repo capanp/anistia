@@ -7,7 +7,7 @@ const animeName = document.getElementById("top-name");
 const animeDescription = document.getElementById("desc");
 
 // JSON dosyasını al
-fetch("data/animes.json")
+fetch("https://www.anistia-rest-api.capan.workers.dev/v1/animes.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("JSON dosyası yüklenemedi");
